@@ -123,7 +123,6 @@ public class SystemFlowRunner {
 
     private static void createOrder() {
         Scanner scanner = new Scanner(System.in);
-        SystemDatabase systemDatabase = SystemDatabase.getInstance();
         ShoppingCart cart = new ShoppingCart();
 
         while (true) {
