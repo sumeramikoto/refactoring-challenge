@@ -24,10 +24,6 @@ public class Person implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName() {
         Scanner scanner = new Scanner(System.in);
 
@@ -41,10 +37,6 @@ public class Person implements Serializable {
         }
     }
 
-    public String getId() {
-        return id;
-    }
-
     public void setId() {
         Scanner scanner = new Scanner(System.in);
 
@@ -56,10 +48,6 @@ public class Person implements Serializable {
                 System.out.println("Id is mandatory!");
             }
         }
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public void setEmail() {

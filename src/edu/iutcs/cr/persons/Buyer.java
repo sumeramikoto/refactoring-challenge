@@ -20,10 +20,6 @@ public class Buyer extends Person implements Serializable {
         super(id);
     }
 
-    public String getPaymentMethod() {
-        return paymentMethod;
-    }
-
     public void setPaymentMethod() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter new payment method:");
