@@ -71,7 +71,7 @@ public class SystemFlowRunner {
         System.out.print("\n\nEnter 0 to view main menu: ");
 
         Scanner scanner = new Scanner(System.in);
-        int val = -1;
+        int val;
 
         do {
             val = scanner.nextInt();
@@ -99,7 +99,7 @@ public class SystemFlowRunner {
             }
         }
 
-        Vehicle newItem = null;
+        Vehicle newItem;
 
         if (vehicleType == 1) {
             System.out.println("\n\nCreate new bus");
@@ -126,7 +126,7 @@ public class SystemFlowRunner {
         ShoppingCart cart = new ShoppingCart();
 
         while (true) {
-            int selectedOperation = -1;
+            int selectedOperation;
 
             System.out.println("Please enter the type of operation: [1-5]");
             System.out.println("1. Add new vehicle to cart");
@@ -162,8 +162,8 @@ public class SystemFlowRunner {
         Scanner scanner = new Scanner(System.in);
         SystemDatabase database = SystemDatabase.getInstance();
 
-        Buyer buyer = null;
-        Seller seller = null;
+        Buyer buyer;
+        Seller seller;
 
         do {
             System.out.print("Enter buyer id: ");
