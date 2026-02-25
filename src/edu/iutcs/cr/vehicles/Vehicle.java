@@ -30,10 +30,6 @@ public class Vehicle implements Serializable {
         this.registrationNumber = registrationNumber;
     }
 
-    public String getRegistrationNumber() {
-        return this.registrationNumber;
-    }
-
     public void setRegistrationNumber() {
         Scanner scanner = new Scanner(System.in);
         while (this.registrationNumber == null || registrationNumber.isBlank()) {
@@ -44,10 +40,6 @@ public class Vehicle implements Serializable {
                 System.out.println("Registration number is mandatory!");
             }
         }
-    }
-
-    public String getMake() {
-        return make;
     }
 
     public void setMake() {
@@ -63,10 +55,6 @@ public class Vehicle implements Serializable {
         }
     }
 
-    public String getModel() {
-        return model;
-    }
-
     public void setModel() {
         Scanner scanner = new Scanner(System.in);
 
@@ -80,10 +68,6 @@ public class Vehicle implements Serializable {
         }
     }
 
-    public String getYear() {
-        return year;
-    }
-
     public void setYear() {
         Scanner scanner = new Scanner(System.in);
 
@@ -95,10 +79,6 @@ public class Vehicle implements Serializable {
                 System.out.println("Year is mandatory!");
             }
         }
-    }
-
-    public double getPrice() {
-        return price;
     }
 
     public void setPrice() {
