@@ -34,11 +34,11 @@ public class SystemFlowRunner {
 
             if (selectedOperation == 1) {
                 System.out.println("\n\n\nAdd new seller");
-                database.getSellers().add(new Seller());
+                database.addSeller(new Seller());
                 promptToViewMainMenu();
             } else if (selectedOperation == 2) {
                 System.out.println("\n\n\nAdd new customer");
-                database.getBuyers().add(new Buyer());
+                database.addBuyer(new Buyer());
                 promptToViewMainMenu();
             } else if (selectedOperation == 3) {
                 System.out.println("\n\n\nAdd new vehicle");

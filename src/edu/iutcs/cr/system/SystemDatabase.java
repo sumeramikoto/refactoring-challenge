@@ -49,14 +49,6 @@ public class SystemDatabase implements Serializable {
         dataStore.saveInvoices(invoices);
     }
 
-    public Set<Buyer> getBuyers() {
-        return buyers;
-    }
-
-    public Set<Seller> getSellers() {
-        return sellers;
-    }
-
     public Set<Vehicle> getVehicles() {
         return vehicles;
     }
@@ -144,5 +136,13 @@ public class SystemDatabase implements Serializable {
         }
 
         return null;
+    }
+
+    public void addSeller(Seller seller) {
+        sellers.add(seller);
+    }
+
+    public void addBuyer(Buyer buyer) {
+        buyers.add(buyer);
     }
 }
