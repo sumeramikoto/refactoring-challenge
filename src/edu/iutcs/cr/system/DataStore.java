@@ -14,76 +14,58 @@ import java.util.Set;
  * @since 4/19/2024
  */
 public class DataStore {
+    private final String CARS_FILENAME = "cars.txt";
+    private final String BUYERS_FILENAME = "buyers.txt";
+    private final String SELLERS_FILENAME = "sellers.txt";
+    private final String INVOICES_FILENAME = "invoices.txt";
 
     public void saveInvoices(Set<Invoice> invoices) {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("invoices.txt"))) {
-            outputStream.writeObject(invoices);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        saveData(invoices, INVOICES_FILENAME);
     }
 
     public Set<Invoice> loadInvoices() {
-        Set<Invoice> invoices = new HashSet<>();
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("invoices.txt"))) {
-            invoices = (Set<Invoice>) inputStream.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            saveInvoices(invoices);
-        }
-        return invoices;
+        return (Set<Invoice>) loadData(INVOICES_FILENAME);
     }
 
     public void saveBuyers(Set<Buyer> buyers) {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("buyers.txt"))) {
-            outputStream.writeObject(buyers);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        saveData(buyers, BUYERS_FILENAME);
     }
 
     public Set<Buyer> loadBuyers() {
-        Set<Buyer> buyers = new HashSet<>();
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("buyers.txt"))) {
-            buyers = (Set<Buyer>) inputStream.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            saveBuyers(buyers);
-        }
-        return buyers;
+        return (Set<Buyer>) loadData(BUYERS_FILENAME);
     }
 
     public void saveSellers(Set<Seller> sellers) {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("sellers.txt"))) {
-            outputStream.writeObject(sellers);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        saveData(sellers, SELLERS_FILENAME);
     }
 
     public Set<Seller> loadSellers() {
-        Set<Seller> sellers = new HashSet<>();
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("sellers.txt"))) {
-            sellers = (Set<Seller>) inputStream.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            saveSellers(sellers);
-        }
-        return sellers;
+        return (Set<Seller>) loadData(SELLERS_FILENAME);
     }
 
     public void saveVehicles(Set<Vehicle> vehicles) {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("cars.txt"))) {
-            outputStream.writeObject(vehicles);
+        saveData(vehicles, CARS_FILENAME);
+    }
+
+    public Set<Vehicle> loadVehicles() {
+        return (Set<Vehicle>) loadData(CARS_FILENAME);
+    }
+
+    private void saveData(Object data, String filename) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(filename))) {
+            outputStream.writeObject(data);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public Set<Vehicle> loadVehicles() {
-        Set<Vehicle> vehicles = new HashSet<>();
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("cars.txt"))) {
-            vehicles = (Set<Vehicle>) inputStream.readObject();
+    private Set<?> loadData(String filename) {
+        Set<?> dataSet = new HashSet<>();
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(filename))) {
+            dataSet = (Set<?>) inputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            saveVehicles(vehicles);
+            saveData(dataSet, filename);
         }
-        return vehicles;
+        return dataSet;
     }
 }
