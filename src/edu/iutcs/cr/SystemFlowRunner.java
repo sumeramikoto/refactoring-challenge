@@ -20,12 +20,11 @@ public class SystemFlowRunner {
         SystemDatabase database = SystemDatabase.getInstance();
         System.out.println("Existing system loaded");
 
-        MainMenu mainMenu = new MainMenu();
 
         while (true) {
             System.out.println("\n\n\n");
 
-            int selectedOperation = mainMenu.showAndSelectOperation();
+            int selectedOperation = Menu.showAndSelectOperation();
 
             if (selectedOperation == 9) {
                 database.saveSystem();
@@ -82,12 +81,7 @@ public class SystemFlowRunner {
         Scanner scanner = new Scanner(System.in);
         SystemDatabase database = SystemDatabase.getInstance();
 
-        System.out.println("Please enter the type of vehicle [1-6]: ");
-        System.out.println("1. Bus");
-        System.out.println("2. Car");
-        System.out.println("3. Hatchback");
-        System.out.println("4. Sedan");
-        System.out.println("5. SUV");
+        Menu.showVehicleMenu();
 
         int vehicleType = -1;
         while(vehicleType<1 || vehicleType>5) {
@@ -128,13 +122,7 @@ public class SystemFlowRunner {
         while (true) {
             int selectedOperation;
 
-            System.out.println("Please enter the type of operation: [1-5]");
-            System.out.println("1. Add new vehicle to cart");
-            System.out.println("2. Remove vehicle from cart");
-            System.out.println("3. View cart");
-            System.out.println("4. Confirm purchase");
-            System.out.println();
-            System.out.println("5. Return to main menu");
+            Menu.showOrderMenu();
 
             selectedOperation = scanner.nextInt();
 
