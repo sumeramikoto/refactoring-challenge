@@ -1,12 +1,13 @@
 package edu.iutcs.cr.vehicles;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  * @author Raian Rahman
  * @since 4/19/2024
  */
-public class Hatchback extends Vehicle {
+public class Hatchback extends Vehicle implements Serializable {
 
     private boolean isCompact;
 
